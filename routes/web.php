@@ -39,3 +39,19 @@ Route::permanentRedirect("/saltar02", "/index");
 Route::view("/view", "home");
 
 Route::view("/view", "home", ["myName" => "Luciano Eduardo"]);
+
+// -----------------------------------------
+// ROUTE PARAMETERS
+// -----------------------------------------
+
+Route::get("/valor/{value}", [MainController::class, "mostrarValor"]);
+
+Route::get("/valores/{value01}/{value02}", [MainController::class, "mostrarValores"]);
+
+Route::get("/valores02/{value01}/{value02}", [MainController::class, "mostrarValores02"]);
+
+Route::get("/opcional/{value?}", [MainController::class, "mostrarValorOpcional"]);
+
+Route::get("/opcional02/{value01}/{value02?}", [MainController::class, "mostrarValorOpcional02"]);
+
+Route::get("/user/{user_id}/post/{post_id}", [MainController::class, "mostrarPosts"]);
