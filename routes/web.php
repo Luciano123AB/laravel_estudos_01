@@ -55,3 +55,22 @@ Route::get("/opcional/{value?}", [MainController::class, "mostrarValorOpcional"]
 Route::get("/opcional02/{value01}/{value02?}", [MainController::class, "mostrarValorOpcional02"]);
 
 Route::get("/user/{user_id}/post/{post_id}", [MainController::class, "mostrarPosts"]);
+
+// -----------------------------------------
+// ROUTE PARAMETERS WITH CONSTRAINTS
+// -----------------------------------------
+
+Route::get("/exp01/{value}", function($value) {
+    echo $value;
+})->where("value", "[0-9]+");
+
+Route::get("/exp02/{value}", function($value) {
+    echo $value;
+})->where("value", "[A-Za-z0-9]+");
+
+Route::get("/exp03/{value01}/{value02}", function($value01, $value02) {
+    echo "$value01 e $value02";
+})->where([
+    "value01" => "[0-9]+",
+    "value02" => "[A-Za-z0-9]+"
+]);
