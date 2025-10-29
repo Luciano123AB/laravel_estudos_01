@@ -16,7 +16,7 @@ class StartMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // Vai ser executado antes do controller.
-        echo "<p>StarMiddleware</p>";
+        echo "<p>Star Middleware</p>";
 
         return $next($request);
     }
